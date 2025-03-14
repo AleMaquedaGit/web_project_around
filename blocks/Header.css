@@ -1,0 +1,11 @@
+.header {
+  width: 880px;
+  height: 10rem;
+  top: 45px;
+  left: 200px;
+  border-width: 1px;
+}
+
+.header__title {
+  height: 10rem;
+}

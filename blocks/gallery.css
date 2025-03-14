@@ -1,0 +1,10 @@
+.gallery {
+  max-width: 1190px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 16px 16px;
+  margin: 26px auto 92px;
+  text-align: center;
+  justify-items: center;
+}
