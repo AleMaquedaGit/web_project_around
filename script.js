@@ -35,3 +35,8 @@ saveChange.addEventListener("click", (e) => {
   descripcion.textContent = occupationInput.value;
   modal.classList.toggle("popup_opened");
 });
+
+// textContent "leer el contenido de los parrafos " ejemplo <p> hola </p> el textcontent es hola
+//En un Input para leer el contenido es .value
+
+// https://alemaquedagit.github.io/web_project_around/

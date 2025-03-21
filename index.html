@@ -1,100 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="stylesheet" href="index.css"/>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--  <link rel="stylesheet" href="index.css"/> -->
+    <link rel="stylesheet" href="pages/Index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        
-          <img class="header__vector" src="./images/Vector.png" alt="vector"/>
+        <img class="header__vector" src="./images/Vector.png" alt="vector" />
       </header>
       <main class="content">
-        <section class="profile">
-          <div class="user"> 
-            <img src="./images/Avatar.png" alt="Avatar"/>
-            <div class="usercontainer">
-              <div class="usergrid">
-                <p class="username">Jacques Cousteu</p>
-                 <button class="userbutton userbutton_small"></button> 
-                
+        <div class="profile">
+          <div class="profile__avatar">
+            <img
+              src="images/Avatar.png"
+              alt="avatar"
+              class="profile__avatar-image"
+            />
+          </div>
 
-                <p class="userdescription">Explorador</p>
-              </div>
-            </div>
-             <button type ="button" class="user__button user__button_medium">🞣</button> 
-             
-        
+          <div class="usergrid">
+            <p class="user__name user__name_paragraph">Jacques Cousteu</p>
+
+            <p class="user__description user__description_info">Explorador</p>
+            <button type="button" class="user__button user__button_edit">
+              🖌
             </button>
           </div>
-        </section>
-        <section>
-          <section class="gallery">
-            <img
-              src="./images/Yosemite.png"
-              alt="Element"
-              class="gallery__item"
-            />
-            <img
-              src="./images/Lago.png"
-              alt="Element"
-              class="gallery__item"
-            />
-            <img
-              src="./images/Montañas.png"
-              alt="Element"
-              class="gallery__item"
-            />
-            <img
-              src="./images/Latemar.png"
-              alt="Element"
-              class="gallery__item"
-            />
-            <img
-              src="./images/Vanois.png"
-              alt="Element"
-              class="gallery__item"
-            />
-            <img
-              src="./images/Lago di Braies.png"
-              alt="Element"
-              class="gallery__item"
-            />
-        </section>
-      
+          <button type="button" class="user__button user__button_add">🞣</button>
+        </div>
 
-        
+        <section class="gallery">
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Valle de Yosemite.png"
+              alt="Valle de Yosemite"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Valle de Yosemite</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Lago Louise.png"
+              alt="Lago Louise"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Lago Louise</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Montañas Calvas.png"
+              alt="Montañas Calvas"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Montañas Calvas</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Latemar.png"
+              alt="Latemar"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Latemar</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Vanois National.png"
+              alt="Parque Nacional de la Vanoise"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Vanoise National</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+          <div class="gallery__card">
+            <img
+              class="gallery__card-img"
+              src="images/Lago di Braies.png"
+              alt="Lago di Braies"
+            />
+
+            <div class="gallery__card-title">
+              <p class="gallery__card-place">Lago di Braies</p>
+              <img class="gallery__card-like" src="images/ButtonLike.png" />
+            </div>
+          </div>
+        </section>
+
+        <section class="popup">
+          <div class="popup__container">
+            <h2 class="popup__form-title">Editar Perfil</h2>
+            <form class="popup__form">
+              <input
+                class="popup__form-name"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Nombre"
+              />
+              <input
+                class="popup__form-occupation"
+                type="text"
+                id="occupation"
+                name="occupation"
+                placeholder="Acerca de mi"
+              />
+              <button type="submit" class="popup__form-button" disabled>
+                Guardar
+              </button>
+            </form>
+          </div>
+          <div class="popup__button-close"></div>
+        </section>
       </main>
 
       <footer class="footer">
         <p class="footer__copyright">© 2025 Around the U.S.</p>
       </footer>
     </div>
-    <section class="popup">
-
-
-      <div class="popup__container">
-        <h2 class="popup__form-title">Editar Perfil</h2>
-        <form class="popup__form">
-          <input class="popup__form-name" type="text" id="name" name="name" placeholder="Nombre">
-          <input class="popup__form-occupation" type="text" id="occupation" name="occupation" placeholder="Acerca de mi">
-          <button type="submit" class="popup__form-button" disabled >Guardar</button>
-        </form>
-        
-      </div>
-      <div class="popup__button-close"></div>
-    </section>
-
-    
-  
-
 
     <script src="script.js"></script>
   </body>
-
 </html>
