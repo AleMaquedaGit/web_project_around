@@ -1,11 +1,11 @@
 .gallery {
-  max-width: 880px;
+  width: 880px;
   height: 743px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 16px 16px;
-  margin: 26px auto 92px;
+
   text-align: center;
   justify-items: center;
   border-top-left-radius: 10px;
@@ -62,8 +62,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 21px 17px;
-    margin-top: 50px;
-    max-width: 282px;
-    width: 100%;
+
+    width: 282px;
   }
 }

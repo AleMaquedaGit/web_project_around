@@ -3,7 +3,7 @@
   height: 18px;
   top: 1140px;
   padding-bottom: 10px;
-  padding-left: 200px;
+  margin-left: 200px;
   color: #545454;
 }
 .footer__copyright {
@@ -12,4 +12,13 @@
   margin: 0;
   margin-top: 67px;
   margin-bottom: 60px;
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    width: 282px;
+    height: 14px;
+    color: #545454;
+    margin-left: 19px;
+  }
 }

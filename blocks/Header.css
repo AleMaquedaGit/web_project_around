@@ -13,8 +13,8 @@
   .header__vector {
     max-width: 130px;
   }
-
   .header {
-    max-width: 700px;
+    width: 282px;
+    margin: 0;
   }
 }

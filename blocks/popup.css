@@ -11,7 +11,7 @@
 }
 .popup__container {
   max-width: 430px;
-  width: 100%;
+  margin: auto;
   max-height: 330px;
   height: 100%;
   background: #ffffff;
@@ -70,4 +70,29 @@
 
 .popup_opened {
   display: flex;
+}
+
+@media screen and (max-width: 320px) {
+  .popup__container {
+    width: 270px;
+    margin: 0;
+    align-content: center;
+  }
+  .popup__form-title {
+    width: 232px;
+    margin: 0;
+  }
+  .popup__form-name {
+    width: 238px;
+  }
+  .popup__form-occupation {
+    width: 238px;
+  }
+  .popup__form-button {
+    width: 238px;
+  }
+  .popup__button-close {
+    right: 300px;
+    top: 100px;
+  }
 }
