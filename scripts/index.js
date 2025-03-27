@@ -1,4 +1,4 @@
-const openModal = document.querySelector(".user__button_edit");
+const openModal = document.querySelector(".profile__button_edit");
 const modal = document.querySelector(".popup");
 
 const closeModal = document.querySelector(".popup__button-close");
@@ -6,8 +6,8 @@ const buttonDisable = document.querySelector(".popup__form-button");
 const nameInput = document.querySelector(".popup__form-name");
 const occupationInput = document.querySelector(".popup__form-occupation");
 const saveChange = document.querySelector(".popup__form-button");
-const usuario = document.querySelector(".user__name_paragraph");
-const descripcion = document.querySelector(".user__description_info");
+const usuario = document.querySelector(".profile__content_name");
+const descripcion = document.querySelector(".profile__content_info");
 
 openModal.addEventListener("click", (e) => {
   console.log("funciona el click");
