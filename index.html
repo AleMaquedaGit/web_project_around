@@ -142,7 +142,8 @@
           </div>
         </section>
 
-        <section class="popup">
+        <section class="popup"id ="popup-profile">
+
           <div class="popup__container">
             <h2 class="popup__form-title">Editar Perfil</h2>
             <form class="popup__form">
@@ -166,7 +167,46 @@
             </form>
           </div>
           <div class="popup__button-close"></div>
-        </section>
+       </section>
+
+
+       <section class="popup" id="popup-add">
+        <div class="popup__container">
+          <h2 class="popup__form-title">Nuevo Lugar</h2>
+          <form class="popup__form">
+            <input class="popup__form-name" type="text" id="name" name="name" placeholder="Título" minlength="2" maxlength="40" required="">
+
+            <input class="popup__form-occupation" type="url" id="occupation" name="occupation" placeholder="Enlace a la imagen" required="">
+
+            <button type="submit" class="popup__form-button" disabled="">
+              Guardar
+            </button>
+          </form>
+        </div>
+        <div class="popup__button-close" id="popup-close-add"></div>
+      </section>
+
+      <section class="popup popup_opened" id="popup-image">
+
+          <div class="popup__container">
+            <!--<h2 class="popup__form-title">Nuevo Lugar</h2>-->
+<img class="popup__image" src="/images/Montañas_Calvas.png" alt="">
+          </div>
+          <div class="popup__button-close" id="popup-close-image"></div>
+          <div class= "popup__description">
+            
+          </div>
+
+
+
+
+
+
+      </section>
+
+
+
+
       </main>
     </div>
     <footer class="footer">
