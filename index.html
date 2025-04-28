@@ -41,105 +41,10 @@
         </div>
 
         <section class="gallery">
-          <div class="gallery__card">
-            <img
-              src="images/Valle_Yosemite.png"
-              alt="Valle-Yosemite"
-              class="gallery__card-img"
-            />
 
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Valle de Yosemite</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
 
-          <div class="gallery__card">
-            <img
-              class="gallery__card-img"
-              src="images/Lago_Louise.png"
-              alt="Lago-Louise"
-            />
 
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Lago Louise</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
 
-          <div class="gallery__card">
-            <img
-              class="gallery__card-img"
-              src="images/Montañas_Calvas.png"
-              alt="Montañas-Calvas"
-            />
-
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Montañas Calvas</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
-
-          <div class="gallery__card">
-            <img
-              class="gallery__card-img"
-              src="images/Latemar.png"
-              alt="Latemar"
-            />
-
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Latemar</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              src="images/Vanois_National.png"
-              alt="Parque Nacional de la Vanoise"
-              class="gallery__card-img"
-            />
-
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Vanoise National</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
-          <div class="gallery__card">
-            <img
-              class="gallery__card-img"
-              src="images/Lago_Braies.png"
-              alt="Lago-Braies"
-            />
-
-            <div class="gallery__card-title">
-              <p class="gallery__card-place">Lago di Braies</p>
-              <img
-                class="gallery__card-like"
-                src="images/ButtonLike.png"
-                alt="Button like"
-              />
-            </div>
-          </div>
         </section>
 
         <section class="popup"id ="popup-profile">
@@ -150,15 +55,15 @@
               <input
                 class="popup__form-name"
                 type="text"
-                id="name"
+                id="input_description"
                 name="name"
                 placeholder="Nombre"
               />
               <input
                 class="popup__form-occupation"
                 type="text"
-                id="occupation"
-                name="occupation"
+                id="link"
+                name="input_link"
                 placeholder="Acerca de mi"
               />
               <button type="submit" class="popup__form-button" disabled>
@@ -178,7 +83,7 @@
 
             <input class="popup__form-occupation" type="url" id="occupation" name="occupation" placeholder="Enlace a la imagen" required="">
 
-            <button type="submit" class="popup__form-button" disabled="">
+            <button type="submit" class="popup__form-button"id="button_image_add">
               Guardar
             </button>
           </form>
@@ -186,15 +91,15 @@
         <div class="popup__button-close" id="popup-close-add"></div>
       </section>
 
-      <section class="popup popup_opened" id="popup-image">
+      <section class="popup " id="popup-image">
 
           <div class="popup__container">
-            <!--<h2 class="popup__form-title">Nuevo Lugar</h2>-->
-<img class="popup__image" src="/images/Montañas_Calvas.png" alt="">
+            <!--<h2 class="popup__form-title" id="title__imge">Nuevo Lugar</h2> -->
+<img class="popup__image" id="popup__image-add" src="/images/Montañas_Calvas.png" alt="">
           </div>
           <div class="popup__button-close" id="popup-close-image"></div>
           <div class= "popup__description">
-            
+
           </div>
 
 
@@ -212,7 +117,26 @@
     <footer class="footer">
       <p class="footer__copyright">© 2025 Around the U.S.</p>
     </footer>
+    <template id="template-images">
+      <div class="gallery__card">
+        <button type="button" class="gallery__trash_button" ></button>
+        <img
+          src="images/Valle_Yosemite.png"
+          alt="Valle-Yosemite"
+          class="gallery__card-img"
+        />
 
+        <div class="gallery__card-title">
+          <p class="gallery__card-place">Valle de Yosemite</p>
+
+           <div  class="gallery__card-like gallery__card_like_active"> </div>
+
+
+        </div>
+      </div>
+
+      </div>
+    </template>
     <script src="scripts/index.js"></script>
   </body>
 </html>

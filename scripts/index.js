@@ -23,7 +23,96 @@ const initialCards = [
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
+  {
+    name: "Maqueda ",
+    link: "https://i.pinimg.com/736x/df/f3/42/dff3424e1775be5b877f1725db5a45b9.jpg",
+  },
 ];
+//FUERA DEL FOR EACH
+//Paso 1. Tener un lugar donde van a ir los clones (contenedor)
+//Paso 2. Extrar el contenido del template(content)
+//FUERA DEL FOR EACH
+
+//boton  para borrar imagen
+
+const template = document.querySelector("#template-images").content;
+const contenedor = document.querySelector(".gallery");
+const popupImage = document.querySelector("#popup-image");
+
+const popupImageAdd = document.querySelector("#popup__image-add");
+
+//CLON
+
+initialCards.forEach((card) => {
+  const clon = template.cloneNode(true);
+  const titulo = clon.querySelector(".gallery__card-place");
+  const imagen = clon.querySelector(".gallery__card-img");
+  const buttonElimanateImage = clon.querySelector(".gallery__trash_button");
+  const imageDisapear = clon.querySelector(".gallery__card");
+  const buttonLike = clon.querySelector(".gallery__card-like");
+
+  //const bottonActive = document.querySelector(".gallery__card_like_active");
+  imagen.addEventListener("click", () => {
+    console.log("funciona el click");
+    popupImageAdd.src = imagen.src;
+    popupImage.classList.toggle("popup_opened");
+  });
+
+  buttonElimanateImage.addEventListener("click", (evt) => {
+    console.log(evt);
+    evt.target.closest(".gallery__card").remove();
+  });
+
+  buttonLike.addEventListener("click", (e) => {
+    console.log("funciona el click");
+    e.preventDefault();
+    buttonLike.classList.toggle("gallery__card_like_active");
+  });
+
+  titulo.textContent = card.name;
+  imagen.src = card.link;
+  imagen.alt = card.name;
+
+  contenedor.appendChild(clon);
+});
+// guardar NUEVA IMAGEN
+const buttonAddImage = document.querySelector("#button_image_add");
+buttonAddImage.addEventListener("click", (e) => {
+  e.preventDefault();
+  const clon = template.cloneNode(true);
+  const titulo = clon.querySelector(".gallery__card-place");
+  const imagen = clon.querySelector(".gallery__card-img");
+  const buttonElimanateImage = clon.querySelector(".gallery__trash_button");
+  const imageDisapear = clon.querySelector(".gallery__card");
+  const buttonLike = clon.querySelector(".gallery__card-like");
+  const inputDescription = document.querySelector("#input_description");
+  const link = document.querySelector("#input_link");
+  console.log(inputDescription.value);
+  //const bottonActive = document.querySelector(".gallery__card_like_active");
+  imagen.addEventListener("click", () => {
+    console.log("funciona el click");
+    popupImageAdd.src = imagen.src;
+    popupImage.classList.toggle("popup_opened");
+  });
+
+  buttonElimanateImage.addEventListener("click", (evt) => {
+    console.log(evt);
+    evt.target.closest(".gallery__card").remove();
+  });
+
+  buttonLike.addEventListener("click", (e) => {
+    console.log("funciona el click");
+    e.preventDefault();
+    buttonLike.classList.toggle("gallery__card_like_active");
+  });
+
+  titulo.textContent = inputDescription.value;
+  imagen.src = link.value;
+  imagen.alt = inputDescription.value;
+
+  contenedor.appendChild(clon);
+  modal1.classList.toggle("popup_opened");
+});
 
 const openModal = document.querySelector(".profile__button_edit");
 const modal = document.querySelector(".popup");
@@ -43,6 +132,10 @@ const occupationInput = document.querySelector(".popup__form-occupation");
 const saveChange = document.querySelector(".popup__form-button");
 const usuario = document.querySelector(".profile__content_name");
 const descripcion = document.querySelector(".profile__content_info");
+//popup open image //
+const titleImage = document.querySelector(".title__imge");
+const popImageAdd = document.querySelector(".popup__image-add");
+
 // cerrar popup-image//
 const popupCloseImage = document.querySelector("#popup-close-image");
 const modal2 = document.querySelector("#popup-image");
@@ -52,6 +145,12 @@ openModal.addEventListener("click", (e) => {
   e.preventDefault();
   modal.classList.toggle("popup_opened");
 });
+
+/* openModal.addEventListener("click", (e) => {
+  console.log("funciona el click");
+  e.preventDefault();
+  modal.classList.toggle("popup_opened");
+}); */
 
 profileButtonAdd.addEventListener("click", (e) => {
   console.log("funciona el click");
@@ -71,8 +170,16 @@ popupCloseAdd.addEventListener("click", (e) => {
   modal1.classList.toggle("popup_opened");
 });
 
+//boton like funcion
+//bottonInactive.addEventListener("click", (e) => {
+//console.log("funciona el click");
+//e.preventDefault();
+//bottonActive.classList.toggle("gallery__card_like_active");
+//});
+
 // cerrar popup-image//
 
+// eliminar imagen
 popupCloseImage.addEventListener("click", (e) => {
   console.log("funciona el click");
   e.preventDefault();

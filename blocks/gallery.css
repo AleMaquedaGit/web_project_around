@@ -7,7 +7,7 @@
   grid-gap: 16px 16px;
 
   text-align: center;
-  justify-items: center;
+  /*justify-items: center;*/
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -20,6 +20,17 @@
   white-space: nowrap;
   overflow: hidden;
   position: relative;
+}
+
+.gallery__trash_button {
+  border: none;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background: url(../images/buttonTrash.png) center no-repeat;
 }
 
 .gallery__card-img {
@@ -53,10 +64,12 @@
   width: 21px;
   height: 19px;
 
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url(../images/Vector.svg);
 }
 
+.gallery__card_like_active {
+  background: url(../images/LikeActive.png);
+}
 @media screen and (max-width: 320px) {
   .gallery {
     display: grid;
