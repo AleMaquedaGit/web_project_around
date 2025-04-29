@@ -16,18 +16,15 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
   },
   {
-    name: "Parque Nacional de la Vanoise",
+    name: "Parque Nacional  Vanoise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
   },
   {
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
-  {
-    name: "Maqueda ",
-    link: "https://i.pinimg.com/736x/df/f3/42/dff3424e1775be5b877f1725db5a45b9.jpg",
-  },
 ];
+
 //FUERA DEL FOR EACH
 //Paso 1. Tener un lugar donde van a ir los clones (contenedor)
 //Paso 2. Extrar el contenido del template(content)
@@ -85,8 +82,10 @@ buttonAddImage.addEventListener("click", (e) => {
   const buttonElimanateImage = clon.querySelector(".gallery__trash_button");
   const imageDisapear = clon.querySelector(".gallery__card");
   const buttonLike = clon.querySelector(".gallery__card-like");
-  const inputDescription = document.querySelector("#input_description");
-  const link = document.querySelector("#input_link");
+  //const inputDescription = document.querySelector("#input_description");
+  //const link = document.querySelector("#input_link");
+  const inputDescription = document.querySelector("#name");
+  const link = document.querySelector("#occupation");
   console.log(inputDescription.value);
   //const bottonActive = document.querySelector(".gallery__card_like_active");
   imagen.addEventListener("click", () => {
@@ -146,12 +145,6 @@ openModal.addEventListener("click", (e) => {
   modal.classList.toggle("popup_opened");
 });
 
-/* openModal.addEventListener("click", (e) => {
-  console.log("funciona el click");
-  e.preventDefault();
-  modal.classList.toggle("popup_opened");
-}); */
-
 profileButtonAdd.addEventListener("click", (e) => {
   console.log("funciona el click");
   e.preventDefault();
@@ -169,13 +162,6 @@ popupCloseAdd.addEventListener("click", (e) => {
   e.preventDefault();
   modal1.classList.toggle("popup_opened");
 });
-
-//boton like funcion
-//bottonInactive.addEventListener("click", (e) => {
-//console.log("funciona el click");
-//e.preventDefault();
-//bottonActive.classList.toggle("gallery__card_like_active");
-//});
 
 // cerrar popup-image//
 
@@ -202,8 +188,4 @@ saveChange.addEventListener("click", (e) => {
   modal.classList.toggle("popup_opened");
 });
 
-/* textContent "leer el contenido de los parrafos " ejemplo <p> hola </p> el textcontent es hola
-En un Input para leer el contenido es .value
-
- https://alemaquedagit.github.io/web_project_around/
-*/
+// https://alemaquedagit.github.io/web_project_around/
