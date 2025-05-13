@@ -9,12 +9,22 @@
   padding: 45px 0 41px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
   .header__vector {
     max-width: 130px;
   }
   .header {
-    width: 282px;
-    margin: auto;
+    margin: initial;
+    border-bottom: 1px solid #545454;
+  }
+
+  @media screen and (max-width: 320px) {
+    .header__vector {
+      max-width: 130px;
+    }
+    .header {
+      width: 282px;
+      margin: auto;
+    }
   }
 }

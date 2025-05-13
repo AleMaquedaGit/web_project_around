@@ -74,6 +74,10 @@
 .popup_opened {
   display: flex;
 }
+.popup__image {
+  width: 433px;
+  height: 540px;
+}
 
 @media screen and (max-width: 320px) {
   .popup__container {
@@ -97,5 +101,11 @@
   .popup__button-close {
     right: 300px;
     top: 100px;
+  }
+
+  .popup__image {
+    width: 240px;
+    height: 299px;
+    left: 40px;
   }
 }

@@ -13,6 +13,7 @@
 }
 
 .gallery__card {
+  width: 100%;
   background: #ffffff;
   border-radius: 10px;
   height: 361px;
@@ -34,7 +35,6 @@
 }
 
 .gallery__card-img {
-  max-width: 282px;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
   max-height: 282px;
@@ -70,6 +70,40 @@
 .gallery__card_like_active {
   background: url(../images/LikeActive.png);
 }
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    width: 720px;
+    height: 743px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 16px 16px;
+
+    margin-right: 20px;
+    text-align: center;
+    /*justify-items: center;*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .gallery__card-img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    max-height: 282px;
+    min-height: 282px;
+  }
+  .gallery__card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    height: 361px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .gallery {
     display: grid;

@@ -9,6 +9,19 @@
   line-height: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .page {
+    max-width: 720px;
+    height: 1700px;
+    margin: auto;
+    background-color: #000;
+    color: #fff;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .page {
     max-width: 320px;
