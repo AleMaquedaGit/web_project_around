@@ -48,7 +48,7 @@
 }
 
 .popup__form-button {
-  background: #000000;
+  background-color: #000000;
   border-radius: 2px;
   font-family: "Inter";
   font-style: normal;
@@ -60,6 +60,11 @@
   max-width: 358px;
   width: 100%;
   height: 56px;
+}
+
+.popup__disabled {
+  background-color: #c4c4c4;
+  cursor: default;
 }
 
 .popup__button-close {

@@ -1,3 +1,5 @@
+import validate from "./validate.js";
+validate();
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -84,9 +86,9 @@ buttonAddImage.addEventListener("click", (e) => {
   const buttonLike = clon.querySelector(".gallery__card-like");
   //const inputDescription = document.querySelector("#input_description");
   //const link = document.querySelector("#input_link");
-  const inputDescription = document.querySelector("#name");
-  const link = document.querySelector("#occupation");
-  console.log(inputDescription.value);
+  const inputDescription = document.querySelector("#place");
+  const link = document.querySelector("#link");
+
   //const bottonActive = document.querySelector(".gallery__card_like_active");
   imagen.addEventListener("click", () => {
     console.log("funciona el click");
@@ -105,7 +107,7 @@ buttonAddImage.addEventListener("click", (e) => {
     buttonLike.classList.toggle("gallery__card_like_active");
   });
 
-  titulo.textContent = inputDescription.value;
+  titulo.textContent = inputDescription.value ?? "";
   imagen.src = link.value;
   imagen.alt = inputDescription.value;
 
@@ -127,7 +129,7 @@ const popupCloseAdd = document.querySelector("#popup-close-add");
 
 const buttonDisable = document.querySelector(".popup__form-button");
 const nameInput = document.querySelector(".popup__form-name");
-const occupationInput = document.querySelector(".popup__form-occupation");
+const occupationInput = document.querySelector("#input_description");
 const saveChange = document.querySelector(".popup__form-button");
 const usuario = document.querySelector(".profile__content_name");
 const descripcion = document.querySelector(".profile__content_info");
@@ -172,18 +174,20 @@ popupCloseImage.addEventListener("click", (e) => {
   modal2.classList.toggle("popup_opened");
 });
 
-nameInput.addEventListener("change", (e) => {
+/*nameInput.addEventListener("change", (e) => {
   buttonDisable.disabled = false;
 });
 
 occupationInput.addEventListener("change", (e) => {
   buttonDisable.disabled = false;
-});
+});*/
 
 saveChange.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("funciona el click guardar");
+
   usuario.textContent = nameInput.value;
+
   descripcion.textContent = occupationInput.value;
   modal.classList.toggle("popup_opened");
 });

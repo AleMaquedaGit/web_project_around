@@ -65,6 +65,18 @@
   background-image: url(../images/Add\ Button.png);
 }
 
+.popup_paragraph {
+  width: 220px;
+  height: 16px;
+  left: 10px;
+  color: #ff0000;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
 .profile__button_add {
   margin-left: 120px;
 }
