@@ -8,8 +8,8 @@
     <!--  <link rel="stylesheet" href="index.css"/> -->
 
     <link rel="stylesheet" href="pages/index.css" />
-   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
   <body>
     <div class="page">
       <header class="header">
@@ -26,9 +26,7 @@
           </div>
 
           <div class="profile__grid-content">
-            <p class="profile__content profile__content_name">
-              Ale Maqueda
-            </p>
+            <p class="profile__content profile__content_name">Ale Maqueda</p>
 
             <p class="profile__content profile__content_info">Chess player</p>
             <button
@@ -36,20 +34,15 @@
               class="profile__button profile__button_edit"
             ></button>
           </div>
-          <button type="submit" class="profile__button profile__button_add ">
-
-          </button>
+          <button
+            type="submit"
+            class="profile__button profile__button_add"
+          ></button>
         </div>
 
-        <section class="gallery">
+        <section class="gallery"></section>
 
-
-
-
-        </section>
-
-        <section class="popup"id ="popup-profile">
-
+        <section class="popup" id="popup-profile">
           <div class="popup__container">
             <h2 class="popup__form-title">Editar Perfil</h2>
             <form class="popup__form">
@@ -59,7 +52,9 @@
                 id="input_name"
                 name="name"
                 placeholder="Nombre"
-                minlength="2" maxlength="40" required
+                minlength="2"
+                maxlength="40"
+                required
               />
               <span class="popup_paragraph" id="input_name-error"></span>
               <input
@@ -68,57 +63,77 @@
                 id="input_description"
                 name="input_link"
                 placeholder="Acerca de mi"
-                minlength="2" maxlength="40" required
-
+                minlength="2"
+                maxlength="40"
+                required
               />
               <!-- agregar clase al span para estilo en css-->
-              <span class="popup_paragraph"id="input_description-error"> </span>
-              <button type="submit" class="popup__form-button popup__disabled" id="btn__enviar" value ="Enviar" disabled>
+              <span class="popup_paragraph" id="input_description-error">
+              </span>
+              <button
+                type="submit"
+                class="popup__form-button popup__disabled"
+                id="btn__enviar"
+                value="Enviar"
+                disabled
+              >
                 Guardar
               </button>
             </form>
           </div>
           <div class="popup__button-close"></div>
-       </section>
+        </section>
 
-
-       <section class="popup" id="popup-add">
-        <div class="popup__container">
-          <h2 class="popup__form-title">Nuevo Lugar</h2>
-          <form class="popup__form">
-            <input class="popup__form-name" type="text" id="place" name="place" placeholder="Título" minlength="2" maxlength="40" required="">
-          <span class="popup_paragraph"id="place-error"> </span>
-            <input class="popup__form-name" type="url" id="link" name="link" placeholder="Enlace a la imagen" required="">
-         <span class="popup_paragraph"id="link-error"> </span>
-            <button type="submit" class="popup__form-button popup__disabled" id="button_image_add" disabled>
-              Guardar
-            </button>
-          </form>
-        </div>
-        <div class="popup__button-close" id="popup-close-add"></div>
-      </section>
-
-      <section class="popup " id="popup-image">
-
+        <section class="popup" id="popup-add">
           <div class="popup__container">
-            <!--<h2 class="popup__form-title" id="title__imge">Nuevo Lugar</h2> -->
-<img class="popup__image" id="popup__image-add" src="/images/Montañas_Calvas.png" alt="">
+            <h2 class="popup__form-title">Nuevo Lugar</h2>
+            <form class="popup__form">
+              <input
+                class="popup__form-name"
+                type="text"
+                id="place"
+                name="place"
+                placeholder="Título"
+                minlength="2"
+                maxlength="40"
+                required=""
+              />
+              <span class="popup_paragraph" id="place-error"> </span>
+              <input
+                class="popup__form-name"
+                type="url"
+                id="link"
+                name="link"
+                placeholder="Enlace a la imagen"
+                required=""
+              />
+              <span class="popup_paragraph" id="link-error"> </span>
+              <button
+                type="submit"
+                class="popup__form-button popup__disabled"
+                id="button_image_add"
+                disabled
+              >
+                Guardar
+              </button>
+            </form>
+          </div>
+          <div class="popup__button-close" id="popup-close-add"></div>
+        </section>
+
+        <section class="popup" id="popup-image">
+          <div class="popup__container">
+            <img
+              class="popup__image"
+              id="popup__image-add"
+              src="/images/Montañas_Calvas.png"
+              alt=""
+            />
+            <h2 class="popup__form-title" id="title__imge">Nuevo Lugar</h2>
           </div>
           <div class="popup__button-close" id="popup-close-image"></div>
-          <div class= "popup__description">
-
-          </div>
-
-
-
-
-
-
-      </section>
-
-
-
-
+          <div class="popup__description"></div>
+        </section>
       </main>
     </div>
     <footer class="footer">
@@ -126,7 +141,7 @@
     </footer>
     <template id="template-images">
       <div class="gallery__card">
-        <button type="button" class="gallery__trash_button" ></button>
+        <button type="button" class="gallery__trash_button"></button>
         <img
           src="images/Valle_Yosemite.png"
           alt="Valle-Yosemite"
@@ -136,15 +151,10 @@
         <div class="gallery__card-title">
           <p class="gallery__card-place">Valle de Yosemite</p>
 
-           <div  class="gallery__card-like gallery__card_like_active"> </div>
-
-
+          <div class="gallery__card-like"></div>
         </div>
-      </div>
-
       </div>
     </template>
     <script src="scripts/index.js" type="module"></script>
-
   </body>
 </html>

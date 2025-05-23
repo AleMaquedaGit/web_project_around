@@ -39,7 +39,7 @@ const contenedor = document.querySelector(".gallery");
 const popupImage = document.querySelector("#popup-image");
 
 const popupImageAdd = document.querySelector("#popup__image-add");
-
+const newTitle = document.querySelector("#title__imge");
 //CLON
 
 initialCards.forEach((card) => {
@@ -54,6 +54,8 @@ initialCards.forEach((card) => {
   imagen.addEventListener("click", () => {
     console.log("funciona el click");
     popupImageAdd.src = imagen.src;
+
+    newTitle.textContent = imagen.alt;
     popupImage.classList.toggle("popup_opened");
   });
 
@@ -86,15 +88,11 @@ buttonAddImage.addEventListener("click", (e) => {
   const buttonLike = clon.querySelector(".gallery__card-like");
   //const inputDescription = document.querySelector("#input_description");
   //const link = document.querySelector("#input_link");
+
   const inputDescription = document.querySelector("#place");
   const link = document.querySelector("#link");
 
   //const bottonActive = document.querySelector(".gallery__card_like_active");
-  imagen.addEventListener("click", () => {
-    console.log("funciona el click");
-    popupImageAdd.src = imagen.src;
-    popupImage.classList.toggle("popup_opened");
-  });
 
   buttonElimanateImage.addEventListener("click", (evt) => {
     console.log(evt);
@@ -111,7 +109,13 @@ buttonAddImage.addEventListener("click", (e) => {
   imagen.src = link.value;
   imagen.alt = inputDescription.value;
 
-  contenedor.appendChild(clon);
+  imagen.addEventListener("click", () => {
+    console.log("funciona el click");
+    popupImageAdd.src = imagen.src;
+    newTitle.textContent = imagen.alt;
+    popupImage.classList.toggle("popup_opened");
+  });
+  contenedor.prepend(clon);
   modal1.classList.toggle("popup_opened");
 });
 
@@ -134,7 +138,7 @@ const saveChange = document.querySelector(".popup__form-button");
 const usuario = document.querySelector(".profile__content_name");
 const descripcion = document.querySelector(".profile__content_info");
 //popup open image //
-const titleImage = document.querySelector(".title__imge");
+
 const popImageAdd = document.querySelector(".popup__image-add");
 
 // cerrar popup-image//
