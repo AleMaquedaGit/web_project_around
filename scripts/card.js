@@ -1,11 +1,20 @@
+//SOLID
+//SEPARACION DE RESPONSBILIDAD
+//({ name, link }) => {
+//popupImageCard.Open({ name, link });
+//Callback: una funcion que llega como parametro
+
 class Card {
-  constructor(cardSelector, { card }) {
+  constructor(cardSelector, { name, link }, handleCardCallback) {
     this._cardSelector = cardSelector;
-    this._id = link._id;
-    this._cardTitle = this._cardTitle.querySelector("#place");
-    this._name = card.name;
-    this._link = card.link;
+    this._handleCardCallback = handleCardCallback;
+    this._name = name;
+    this._link = link;
   }
+  message() {
+    console.log(this._cardSelector, "dentro de message");
+  }
+
   clonCard() {
     this._clon = this._cardSelector.cloneNode(true);
     this._titulo = this._clon.querySelector(".gallery__card-place");
@@ -15,15 +24,13 @@ class Card {
     );
     this._imageDisapear = this._clon.querySelector(".gallery__card");
     this._buttonLike = this._clon.querySelector(".gallery__card-like");
-
+    //PopUpImage. popup de cada carta.
     this._imagen.addEventListener("click", () => {
-      console.log("funciona el click");
-      this._popupImageAdd.src = imagen.src;
-
-      this._newTitle.textContent = imagen.alt;
-      this._popupImage.classList.toggle("popup_opened");
+      //DEBE DE HABER MANERA PARAR ABRIR EL POPUP USANDO LA CLASE
+      //popupImageAdd.Open();¨
+      this._handleCardCallback({ name: this._name, link: this._link });
     });
-
+    // termina PopUpImage.
     this._buttonElimanateImage.addEventListener("click", (evt) => {
       console.log(evt);
       evt.target.closest(".gallery__card").remove();
@@ -35,9 +42,10 @@ class Card {
       this._buttonLike.classList.toggle("gallery__card_like_active");
     });
 
-    this._titulo.textContent = this._card.name;
-    this._imagen.src = this._card.link;
-    this._imagen.alt = this._card.name;
+    this._titulo.textContent = this._name;
+    this._imagen.src = this._link;
+    this._imagen.alt = this._name;
     return this._clon;
   }
 }
+export default Card;

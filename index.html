@@ -32,6 +32,7 @@
             <button
               type="button"
               class="profile__button profile__button_edit"
+              id="profile__button_edit"
             ></button>
           </div>
           <button
@@ -45,7 +46,7 @@
         <section class="popup" id="popup-profile">
           <div class="popup__container">
             <h2 class="popup__form-title">Editar Perfil</h2>
-            <form class="popup__form">
+            <form class="popup__form" id="form__edit">
               <input
                 class="popup__form-name"
                 type="text"
@@ -67,9 +68,8 @@
                 maxlength="40"
                 required
               />
-              <!-- agregar clase al span para estilo en css-->
-              <span class="popup_paragraph" id="input_description-error">
-              </span>
+
+              <span class="popup_paragraph" id="input_description-error"></span>
               <button
                 type="submit"
                 class="popup__form-button popup__disabled"
@@ -87,7 +87,7 @@
         <section class="popup" id="popup-add">
           <div class="popup__container">
             <h2 class="popup__form-title">Nuevo Lugar</h2>
-            <form class="popup__form">
+            <form class="popup__form" id="form__card">
               <input
                 class="popup__form-name"
                 type="text"

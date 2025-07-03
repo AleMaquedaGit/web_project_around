@@ -5,6 +5,7 @@ const validate = () => {
     console.log(form);
     const button = form.querySelector(".popup__form-button");
     const inputs = form.querySelectorAll(".popup__form-name");
+
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         let parte1 = input.id;
@@ -25,17 +26,14 @@ const validate = () => {
 };
 // por cada input se revisan los 2 inputs
 function actualizarBoton(inputs, button) {
-  console.log(inputs, "inputs");
   const validacion = Array.from(inputs).some((input) => {
     return !input.validity.valid;
   });
-  console.log(validacion, "validacion");
+
   //button.disabled = false or true
   button.disabled = validacion;
   if (validacion) button.classList.add("popup__disabled");
   else button.classList.remove("popup__disabled");
-
-  console.log(validacion);
 }
 
 export default validate;
