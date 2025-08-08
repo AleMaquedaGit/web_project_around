@@ -4,13 +4,16 @@ class Popup {
     this._closeButton = this._PopupSelector.querySelector(
       ".popup__button-close"
     );
+    this._handleEsc = this._handleEsc.bind(this);
   }
   Open() {
     console.log("trabajando dewsdee la clase");
     this._PopupSelector.classList.toggle("popup_opened");
+    document.addEventListener("keyup", this._handleEsc);
   }
   Close() {
     this._PopupSelector.classList.toggle("popup_opened");
+    document.removeEventListener("keyup", this._handleEsc); 
   }
   setEvenListener() {
     this._closeButton.addEventListener("click", (e) => {
@@ -18,6 +21,9 @@ class Popup {
       e.preventDefault();
       this.Close();
     });
+  }
+  _handleEsc(evt) {
+    if (evt.key === "Escape") this.Close();
   }
 }
 

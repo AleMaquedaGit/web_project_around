@@ -5,11 +5,15 @@ import Popup from "./Popup.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import Section from "./Section.js";
+import Api from "./Api.js";
 
 // const x1 = new
-const profileContent = document.querySelector(".profile__grid-content");
-const openModal = document.querySelector(".profile__button");
 
+const usuario = document.querySelector(".profile__content_name");
+const descripcion = document.querySelector(".profile__content_info");
+const profileContent = document.querySelector(".profile__grid-content");
+const openModal = document.querySelector(".profile__button_edit");
+const UserInfoSelector = document.querySelector(".userInfo");
 const popupProfile = document.querySelector("#popup-profile");
 const popupImage = document.querySelector("#popup-image");
 const popupAdding = document.querySelector("#popup-add");
@@ -18,18 +22,105 @@ const formEdit = document.querySelector("#form__edit");
 const formCard = document.querySelector("#form__card");
 const forma1 = new FormValidator(config, formEdit);
 const forma2 = new FormValidator(config, formCard);
+const userInfodata = new UserInfo(UserInfoSelector);
+
+const profileButtonAdd = document.querySelector(".profile__button_add");
 forma1.enableValidation();
 forma2.enableValidation();
 //creacion de un objeto apartir de una clase
-const popupUser = new PopupWithForm(popupProfile);
-const popupAdd = new PopupWithForm(popupAdding);
+const popupUser = new PopupWithForm(
+  popupProfile,
+
+  ({ name, description }) => {
+    //tarea la llamada al api para guardar la info, y si la aip tiene extio, vas a llmar a este metodo de userinfodata
+    //por medio de try or catch
+    userInfodata.setUserInfo({ name, description });
+  }
+); //callback
+
 const popupImageCard = new PopupWithImage(popupImage);
 
 popupImageCard.setEvenListener();
 popupUser.setEvenListener();
-popupAdd.setEvenListener();
 
-const initialCards = [
+const api = new Api({
+  baseUrl: "https://around-api.es.tripleten-services.com/v1",
+  headers: {
+    authorization: "06f1087a-ea72-4331-b20a-47ee42c926d9",
+    "Content-Type": "application/json",
+  },
+});
+
+const popupAdd = new PopupWithForm(popupAdding, ({ name, link }) => {
+  api
+    .addCard({ name, link })
+    .then((data) => {
+      section.addItem(createCard(data));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+
+//popupAdd.setEvenListener();
+//console.log(api.getInitialCards()); //mandar a llamar al metodo getitialcards
+//leer datos asincronos
+const template = document.querySelector("#template-images").content;
+const createCard = (data) => {
+  return new Card(
+    template,
+    data,
+    () => imagePopup.open(data),
+    (card) => {
+      deleteCardPopup.open();
+      /* deleteCardPopup.setSubmitAction(() => {
+        api
+          .removeCard(card.getId())
+          .then(() => {
+            card.removeCard();
+            deleteCardPopup.close();
+          })
+          .catch((err) => console.error(`Ocurrió un error al eliminar la tarjeta: ${err}`));
+      });*/
+    },
+    (card) => {
+      api
+        .changeLikeCardStatus(card.getId(), !card.isLiked())
+        .then((data) => {
+          card.updateLikesView(data);
+        })
+        .catch((err) =>
+          console.error(
+            `Ocurrió un error al cambiar el estado del" "like": ${err}`
+          )
+        );
+    }
+  ).clonCard();
+};
+
+const section = new Section(
+  {
+    renderer: (data) => {
+      section.addItem(createCard(data));
+    },
+  },
+  ".gallery"
+);
+
+async function loadInitialCards() {
+  console.log("Dentro de LaodinInitial Cards");
+  try {
+    const initialCards = await api.getInitialCards();
+    console.log(initialCards, "despues del await");
+    section.renderitems(initialCards); //promesa pendiente
+  } catch (error) {
+    console.error("error al obtener las tarjetas", error);
+  }
+}
+
+loadInitialCards();
+
+/*const initialCards = [
   {
     name: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
@@ -39,7 +130,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
   },
   {
-    name: "Montañas Calvas",
+    name: "MontaÃ±as Calvas",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
   },
   {
@@ -55,7 +146,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
-
+*/
 //FUERA DEL FOR EACH
 //Paso 1. Tener un lugar donde van a ir los clones (contenedor)
 //Paso 2. Extrar el contenido del template(content)
@@ -63,21 +154,12 @@ const initialCards = [
 
 //boton  para borrar imagen
 
-const template = document.querySelector("#template-images").content;
 const contenedor = document.querySelector(".gallery");
 
 const popupImageAdd = document.querySelector("#popup__image-add");
 const newTitle = document.querySelector("#title__imge");
 //CLON
-const section = new Section(initialCards, (card) => {
-  const cardElement = new Card(template, card, ({ name, link }) => {
-    popupImageCard.Open({ name, link });
-  });
-  cardElement.message();
-  const clon = cardElement.clonCard();
-  contenedor.appendChild(clon);
-});
-section.renderitems();
+
 //acceder  a la  llave de un objeto
 
 /*initialCards.forEach((card) => {
@@ -88,7 +170,26 @@ section.renderitems();
   const clon = cardElement.clonCard();
   contenedor.appendChild(clon);
 });*/
-// guardar NUEVA IMAGEN
+// guardar NUEVA IMAGE
+//llaves para parametros con objetos
+//
+
+openModal.addEventListener("click", () => {
+  console.log("funciona el click");
+
+  const userData = userInfodata.getUserInfo();
+  console.log(userData);
+  const inputName = document.querySelector("#input_name");
+  const inputDescription = document.querySelector("#input_description");
+
+  inputName.value = userInfodata.getUserInfo().name;
+  inputDescription.value = userInfodata.getUserInfo().description;
+  popupUser.Open();
+
+  console.log("userData", userData);
+});
+
+/*
 const buttonAddImage = document.querySelector("#button_image_add");
 buttonAddImage.addEventListener("click", (e) => {
   //e.preventDefault();
@@ -113,10 +214,6 @@ buttonAddImage.addEventListener("click", (e) => {
     buttonLike.classList.toggle("gallery__card_like_active");
   });
 
-  openModal.addEventListener("click", () => {
-    console.log("funciona el click");
-  });
-
   titulo.textContent = inputDescription.value ?? "";
   imagen.src = link.value;
   imagen.alt = inputDescription.value;
@@ -129,11 +226,11 @@ buttonAddImage.addEventListener("click", (e) => {
   });
   contenedor.prepend(clon);
   modal1.classList.toggle("popup_opened");
-});
+});*/
 
 const modal = document.querySelector(".popup");
 /* popup abrir popup-add */
-const profileButtonAdd = document.querySelector(".profile__button_add");
+
 const modal1 = document.querySelector("#popup-add");
 
 const closeModal = document.querySelector(".popup__button-close");
@@ -146,8 +243,7 @@ const buttonDisable = document.querySelector(".popup__form-button");
 const nameInput = document.querySelector(".popup__form-name");
 const occupationInput = document.querySelector("#input_description");
 const saveChange = document.querySelector(".popup__form-button");
-const usuario = document.querySelector(".profile__content_name");
-const descripcion = document.querySelector(".profile__content_info");
+
 //popup open image //
 
 const popImageAdd = document.querySelector(".popup__image-add");
@@ -172,11 +268,12 @@ occupationInput.addEventListener("change", (e) => {
   buttonDisable.disabled = false;
 });*/
 
+/*
 saveChange.addEventListener("click", (e) => {
   e.preventDefault();
 
   usuario.textContent = nameInput.value;
 
   descripcion.textContent = occupationInput.value;
-  popupUser.Open();
-});
+  popupUser.close();
+});*/
