@@ -41,7 +41,7 @@ class PopupWithForm extends Popup {
       // this._PopupSelector.querySelector("#input_description").value;
 
       this.handleSubmit(this.getInputValues());
-      console.log("despues de la api");
+
       this.Close();
     });
 

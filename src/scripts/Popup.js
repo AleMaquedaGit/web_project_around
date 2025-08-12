@@ -7,17 +7,15 @@ class Popup {
     this._handleEsc = this._handleEsc.bind(this);
   }
   Open() {
-    console.log("trabajando dewsdee la clase");
     this._PopupSelector.classList.toggle("popup_opened");
     document.addEventListener("keyup", this._handleEsc);
   }
   Close() {
     this._PopupSelector.classList.toggle("popup_opened");
-    document.removeEventListener("keyup", this._handleEsc); 
+    document.removeEventListener("keyup", this._handleEsc);
   }
   setEvenListener() {
     this._closeButton.addEventListener("click", (e) => {
-      console.log("funciona el click");
       e.preventDefault();
       this.Close();
     });

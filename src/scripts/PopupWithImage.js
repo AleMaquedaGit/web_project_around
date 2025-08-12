@@ -9,7 +9,6 @@ class PopupWithImage extends Popup {
     this._image = this._PopupSelector.querySelector(".popup__image");
     this._title = this._PopupSelector.querySelector(".popup__form-title");
 
-    console.log("EL super se pone junto con el metodo para agregar mas codigo");
     super.Open();
   }
 }

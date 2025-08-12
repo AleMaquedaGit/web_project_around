@@ -108,7 +108,6 @@ const section = new Section(
 );
 
 async function loadInitialCards() {
-  console.log("Dentro de LaodinInitial Cards");
   try {
     const initialCards = await api.getInitialCards();
     console.log(initialCards, "despues del await");
@@ -175,8 +174,6 @@ const newTitle = document.querySelector("#title__imge");
 //
 
 openModal.addEventListener("click", () => {
-  console.log("funciona el click");
-
   const userData = userInfodata.getUserInfo();
   console.log(userData);
   const inputName = document.querySelector("#input_name");

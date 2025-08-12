@@ -11,9 +11,7 @@ class Card {
     this._name = name;
     this._link = link;
   }
-  message() {
-    console.log(this._cardSelector, "dentro de message");
-  }
+  message() {}
 
   clonCard() {
     this._clon = this._cardSelector.cloneNode(true);
@@ -37,7 +35,6 @@ class Card {
     });
 
     this._buttonLike.addEventListener("click", (e) => {
-      console.log("funciona el click");
       e.preventDefault();
       this._buttonLike.classList.toggle("gallery__card_like_active");
     });
